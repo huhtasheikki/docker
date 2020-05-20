@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#!/etc/encironment
+
+echo "3. Define the variables needed by your virtual machine Char in the general env of your
+terminal, so that you can run the docker ps command without errors. You have
+to fix all four environment variables with one command, and you are not allowed
+to use your shell’s builtin to set these variables by hand."
+echo "______________________________________________"
+echo "COMMAND: eval \$(docker-machine env Char)"
+echo "NOTE: Doesn't work inside bash script. Use in shell!"
+echo "______________________________________________"
+eval $(docker-machine env Char)

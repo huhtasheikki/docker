@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+echo "4. Get the hello-world container from the Docker Hub, where it’s available."
+echo "______________________________________________"
+echo "COMMAND: docker pull hello-world"
+echo "______________________________________________"
+docker pull hello-world
