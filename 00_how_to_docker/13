@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+echo "______________________________________________"
+echo "13. Print the environment variables of the spawning-pool container in one command,
+to be sure that you have configured your container properly. "
+echo "______________________________________________"
+echo "COMMAND: docker inspect -f {{.Config.Env}} spawning-pool"
+echo "______________________________________________"
+echo "ALTERNATIVE: docker exec spawning-pool env"
+echo "______________________________________________"
+echo "NOTES: Alternative command works only when container is running
+Command docker inspect with f-flag (format): inside two curly brackets 'dot text' parses the output with content desired."
+echo "______________________________________________"
+docker inspect -f {{.Config.Env}} spawning-pool

@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+echo "______________________________________________"
+echo "11. List all the Docker volumes created on the machine. Remember. VOLUMES. "
+echo "______________________________________________"
+echo "COMMAND: docker volume ls"
+echo "______________________________________________"
+echo "ALTERNATIVE: "
+echo "______________________________________________"
+echo "NOTES: As we have created just one volume, I don't understand why ask volumeS!"
+echo "______________________________________________"
+docker volume ls

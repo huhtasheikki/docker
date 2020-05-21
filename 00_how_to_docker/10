@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+echo "______________________________________________"
+echo "10. Create a volume named hatchery. "
+echo "______________________________________________"
+echo "COMMAND: docker volume create hatchery"
+echo "______________________________________________"
+echo "ALTERNATIVE: "
+echo "______________________________________________"
+echo "NOTES: "
+echo "______________________________________________"
+docker volume create hatchery
