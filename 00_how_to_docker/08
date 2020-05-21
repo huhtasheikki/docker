@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+echo "______________________________________________"
+echo "8. Launch a shell from an alpine container, and make sure that you can interact
+directly with the container via your terminal, and that the container deletes itself
+once the shell’s execution is done."
+echo "______________________________________________"
+echo "COMMAND: docker container run -it --rm alpine"
+echo "______________________________________________"
+echo "ALTERNATIVE: "
+echo "______________________________________________"
+echo "NOTES: flags i = interactive, t == tty(teletypewriter). With the command 'cat /etc/os-release' "
+echo "______________________________________________"
+docker container run -it --rm alpine

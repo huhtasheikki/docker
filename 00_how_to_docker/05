@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+echo "5. Launch the hello-world container, and make sure that it prints its welcome message, then leaves it."
+echo "______________________________________________"
+echo "COMMAND: docker container run --rm hello-world"
+echo "______________________________________________"
+docker container run --rm hello-world

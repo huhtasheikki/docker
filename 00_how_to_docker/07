@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+echo "______________________________________________"
+echo "7. Get the internal IP address of the overlord container without starting its shell and
+in one command. "
+echo "______________________________________________"
+echo "COMMAND: docker inspect -f {{.NetworkSettings.IPAddress}} overlord"
+echo "______________________________________________"
+echo "ALTERNATIVE: "
+echo "______________________________________________"
+echo "NOTES: "
+echo "______________________________________________"
+docker inspect -f {{.NetworkSettings.IPAddress}} overlord

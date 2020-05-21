@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+echo "______________________________________________"
+echo "9. From the shell of a debian container, install via the container’s package manager
+everything you need to compile C source code and push it onto a git repo (of
+course, make sure before that the package manager and the packages already in the
+container are up_dated). For this exercise, you should only specify the commands
+to be run directly in the container."
+
+echo "______________________________________________"
+echo "COMMANDS: 
+Make sure packages are up-to-date:
+apt-get update
+apt-get upgrade
+
+Install everything needed to create, compile and send to git repo:
+apt-get install nano
+apt-get install git
+apt-get install gcc
+
+Setup and send to repo:
+git config --global user.email \"hhuhtane@student.hive.fi\"
+git config --global user.name \"Heikki Huhtanen\"
+git commit -m \"Push from docker-debian\"
+git remote add origin https://github.com/huhtasheikki/docker-tests.git
+git push -u origin master
+"
+echo "______________________________________________"
+echo "ALTERNATIVE: "
+echo "______________________________________________"
+echo "NOTES: Run container 'docker container run -it --rm debian'"
+echo "______________________________________________"
+

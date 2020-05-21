@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
+echo "--------------------------------------------------"
 echo "2. Get the IP address of the Char virtual machine:"
 echo "--------------------------------------------------"
-echo "COMMAND: docker-machine env Char | grep DOCKER_HOST | cut -d / -f 3"
+echo "COMMAND: docker-machine ip Char"
 echo "--------------------------------------------------"
-docker-machine env Char | grep DOCKER_HOST | cut -d / -f 3
+echo "NOTES: also docker-machine env Char | grep DOCKER_HOST | cut -d / -f 3 | cut -d : -f 1"
+echo "--------------------------------------------------"
+docker-machine ip Char
+docker-machine env Char | grep DOCKER_HOST | cut -d / -f 3 | cut -d : -f 1
