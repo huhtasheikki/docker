@@ -9,18 +9,12 @@ to be run directly in the container."
 
 echo "______________________________________________"
 echo "COMMANDS: 
-Make sure packages are up-to-date:
-apt-get update
-apt-get upgrade
-
-Install everything needed to create, compile and send to git repo:
-apt-get install nano
-apt-get install git
-apt-get install gcc
+apt-get update && apt-get upgrade && apt-get install -y build-essential git
 
 Setup and send to repo:
 git config --global user.email \"hhuhtane@student.hive.fi\"
 git config --global user.name \"Heikki Huhtanen\"
+git add file.c
 git commit -m \"Push from docker-debian\"
 git remote add origin https://github.com/huhtasheikki/docker-tests.git
 git push -u origin master
