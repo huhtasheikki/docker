@@ -1,14 +1,12 @@
 #!/usr/bin/env bash
 
 echo "______________________________________________"
-echo " "
+echo "17. Display all the currently active containers on the Char virtual machine. "
 echo "______________________________________________"
 echo "COMMAND: "
 echo "______________________________________________"
-echo "ALTERNATIVE: "
+echo "ALTERNATIVE: docker ps"
 echo "______________________________________________"
 echo "NOTES: "
 echo "______________________________________________"
-
-
-
+docker container ls

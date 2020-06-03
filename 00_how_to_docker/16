@@ -1,14 +1,12 @@
 #!/usr/bin/env bash
 
 echo "______________________________________________"
-echo " "
+echo "16. Look up the spawning-pool container’s logs in real time without running its shell. "
 echo "______________________________________________"
 echo "COMMAND: "
 echo "______________________________________________"
 echo "ALTERNATIVE: "
 echo "______________________________________________"
-echo "NOTES: "
+echo "NOTES: The warning 'mbind: Operation not permitted' is nothing dangerous."
 echo "______________________________________________"
-
-
-
+docker logs -f spawning-pool

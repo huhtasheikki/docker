@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 echo "______________________________________________"
-echo " "
+echo "18. Relaunch the overlord container. "
 echo "______________________________________________"
 echo "COMMAND: "
 echo "______________________________________________"
@@ -9,6 +9,4 @@ echo "ALTERNATIVE: "
 echo "______________________________________________"
 echo "NOTES: "
 echo "______________________________________________"
-
-
-
+docker container restart overlord

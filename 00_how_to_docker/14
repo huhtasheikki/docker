@@ -10,12 +10,12 @@ service. You can try to access lair on your machine via a web browser, with the
 IP address of the virtual machine as a URL.
 Congratulations, you just deployed a functional Wordpress website in two commands! "
 echo "______________________________________________"
-echo "COMMAND: "
+echo "COMMAND: docker container run -d --name lair -p $Char:8080:80 --link spawning-pool -e WORDPRESS_DB_HOST='spawning-pool' -e WORDPRESS_DB_USER='root' -e WORDPRESS_DB_PASSWORD='Kerrigan' -e WORDPRESS_DB_NAME='zerglings' -e WORDPRESS_TABLE_PREFIX='wp_' wordpress"
 echo "______________________________________________"
 echo "ALTERNATIVE: "
 echo "______________________________________________"
-echo "NOTES: "
+echo "NOTES: Ip address is unnessecary add in -p flag. I just wanted to make sure it works like that as well."
 echo "______________________________________________"
-docker container run --name lair --link spawning-pool -dp 8080:80 -e WORDPRESS_DB_HOST='spawning-pool' -e WORDPRESS_DB_USER='root' -e WORDPRESS_DB_PASSWORD='Kerrigan' -e WORDPRESS_DB_NAME='zerglings' -e WORDPRESS_TABLE_PREFIX='wp_' wordpress
+docker container run -d --name lair -p $Char:8080:80 --link spawning-pool -e WORDPRESS_DB_HOST='spawning-pool' -e WORDPRESS_DB_USER='root' -e WORDPRESS_DB_PASSWORD='Kerrigan' -e WORDPRESS_DB_NAME='zerglings' -e WORDPRESS_TABLE_PREFIX='wp_' wordpress
 
 

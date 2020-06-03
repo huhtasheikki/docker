@@ -7,7 +7,9 @@ You will also make sure that the database is stored in the hatchery volume, that
 the container directly creates a database named zerglings, and that the container
 itself is named spawning-pool. "
 echo "______________________________________________"
-echo "COMMAND: docker container run -d --restart always -v hatchery:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=Kerrigan -e MYSQL_DATABASE=zerglings --name spawning-pool mysql"
+echo "COMMAND: 
+docker container run -e MYSQL_USER="root" -e MYSQL_ROOT_PASSWORD="Kerrigan" -e MYSQL_DATABASE="zerglings" -v hatchery:/var/lib/mysql --restart
+=on-failure -d --name spawning-pool mysql --default-authentication-plugin=mysql_native_password"
 echo "______________________________________________"
 echo "ALTERNATIVE: "
 echo "______________________________________________"
@@ -18,6 +20,9 @@ Write password to check it is correct and check databases with command:
 mysql> SHOW DATABASES;
 
 There it is!
+
+This might need to be run if Wordpress doesn't connect properly (later):
+mysql>ALTER USER 'root' IDENTIFIED WITH mysql_native_password BY 'Kerrigan';
 "
 echo "______________________________________________"
-docker container run -d --restart always -v hatchery:/var/lib/mysql -e MYSQL_USER=root -e MYSQL_ROOT_PASSWORD=Kerrigan -e MYSQL_DATABASE=zerglings --name spawning-pool mysql --default-auth=mysql_native_password
+docker container run -e MYSQL_ROOT_PASSWORD="Kerrigan" -e MYSQL_DATABASE="zerglings" -v hatchery:/var/lib/mysql --restart=on-failure -d --name spawning-pool mysql --default-authentication-plugin=mysql_native_password

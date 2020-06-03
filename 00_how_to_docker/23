@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+echo "______________________________________________"
+echo "23. Create an overlay-type internal network that you will name overmind. "
+echo "______________________________________________"
+echo "COMMAND: docker network create -d overlay --attachable overmind"
+echo "______________________________________________"
+echo "ALTERNATIVE: "
+echo "______________________________________________"
+echo "NOTES:
+To create an overlay network which can be used by swarm services
+or standalone containers to communicate with other standalone 
+containers running on other Docker daemons, add the --attachable flag"
+echo "______________________________________________"
+docker network create -d overlay --attachable overmind

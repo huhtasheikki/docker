@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+Aiur=$(docker-machine ip Aiur)
+Char=$(docker-machine ip Char)
+
+echo "______________________________________________"
+echo "22. Turn Aiur into a slave of the local swarm in which Char is leader (the command to
+take control of Aiur is not requested). "
+echo "______________________________________________"
+echo "COMMAND: 
+eval $\(docker-machine env Char)
+- activate virtual machine Char
+TOKEN=$\(docker swarm join-token -q worker)
+- get worker's token to TOKEN-variable
+eval $\(docker-machine env Aiur)
+- activate virtual machine Aiur
+docker swarm join --token $TOKEN $Char:2377
+- join Aiur to swarm as a worker
+"
+echo "______________________________________________"
+echo "ALTERNATIVE: "
+echo "______________________________________________"
+echo "NOTES: 
+docker node ls
+- see that Char is still leader
+docker info | grep Swarm
+- swarm should be active
+"
+echo "______________________________________________"
+eval $(docker-machine env Char)
+TOKEN=$(docker swarm join-token -q worker)
+eval $(docker-machine env Aiur)
+docker swarm join --token $TOKEN $Char:2377

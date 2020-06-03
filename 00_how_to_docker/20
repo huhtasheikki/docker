@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
+Char=$(docker-machine ip Char)
+
 echo "______________________________________________"
-echo " "
+echo "20. Create a local swarm, the Char virtual machine should be its manager. "
 echo "______________________________________________"
 echo "COMMAND: "
 echo "______________________________________________"
 echo "ALTERNATIVE: "
 echo "______________________________________________"
-echo "NOTES: "
+echo "NOTES: You need to use IP address of Virtual Machine Char to initialize the swarm"
 echo "______________________________________________"
-
-
-
+docker swarm init --advertise-addr $Char

@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 echo "______________________________________________"
-echo " "
+echo "21. Create another virtual machine with docker-machine using the virtualbox driver,
+and name it Aiur. "
 echo "______________________________________________"
 echo "COMMAND: "
 echo "______________________________________________"
@@ -9,6 +10,4 @@ echo "ALTERNATIVE: "
 echo "______________________________________________"
 echo "NOTES: "
 echo "______________________________________________"
-
-
-
+docker-machine create --driver virtualbox Aiur
