@@ -5,7 +5,7 @@ Char=$(docker-machine ip Char)
 echo "______________________________________________"
 echo "20. Create a local swarm, the Char virtual machine should be its manager. "
 echo "______________________________________________"
-echo "COMMAND: "
+echo "COMMAND: docker swarm init --advertise-addr \$(docker-machine ip Char)"
 echo "______________________________________________"
 echo "ALTERNATIVE: "
 echo "______________________________________________"

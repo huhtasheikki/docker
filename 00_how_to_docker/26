@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+echo "______________________________________________"
+echo "26. Launch a 42school/engineering-bay service in two replicas and make sure that
+the service works properly (see the documentation provided at hub.docker.com).
+This service will be named engineering-bay and will be on the overmind network. "
+echo "______________________________________________"
+echo "COMMAND: docker service create --replicas 2 -e OC_USERNAME=john -e OC_PASSWD=rabbit --name engineering-bay --network overmind 42school/engineering-bay"
+echo "______________________________________________"
+echo "ALTERNATIVE: "
+echo "______________________________________________"
+echo "NOTES: 
+https://hub.docker.com/r/42school/engineering-bay/
+"
+echo "______________________________________________"
+docker service create --replicas 2 -e OC_USERNAME=john -e OC_PASSWD=rabbit --name engineering-bay --network overmind 42school/engineering-bay

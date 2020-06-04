@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-Char=$(docker-machine ip Char)
 echo "______________________________________________"
 echo "19. Launch a container name Abathur. It will be a Python container, 2-slim version,
 its /root folder will be bound to a HOME folder on your host, and its 3000 port
@@ -26,9 +25,9 @@ docker container run --name Abathur -p 3000:3000 -v ~/:/root -dit python:2-slim
 - this one creates the Abathur and bind mounds home folder of host to containers /root folder
 docker container exec Abathur pip install --upgrade pip flask
 - updates pip and installs flask
-echo 'from flask import Flask\napp = Flask(__name__)\n\n@app.route("/")\ndef hello_world():\n    return \"Hello, World\"' > ~/hello.py
+echo \"from flask import Flask\napp = Flask(__name__)\n\n@app.route('/')\ndef hello_world():\n    return '<h1>Hello, World</h1>'\" > ~/hello.py
 - creates hello.py flask app
-docker container exec -e FLASK_APP=/root/hello.py Abathur python -m flask run --host=$Char --port=3000
+docker container exec -e FLASK_APP=/root/hello.py Abathur python -m flask run --host=0.0.0.0 --port=3000
 - runs FLASK hello.py app and uses host ip and port 3000
 "
 echo "______________________________________________"

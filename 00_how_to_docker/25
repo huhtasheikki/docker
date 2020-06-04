@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
 echo "______________________________________________"
-echo "21. Create another virtual machine with docker-machine using the virtualbox driver,
-and name it Aiur. "
+echo "25. List all the services of the local swarm. "
 echo "______________________________________________"
-echo "COMMAND: docker-machine create --driver virtualbox Aiur"
+echo "COMMAND: docker service ls"
 echo "______________________________________________"
 echo "ALTERNATIVE: "
 echo "______________________________________________"
-echo "NOTES: "
+echo "NOTES: This command lists services are running in the swarm.
+https://docs.docker.com/engine/reference/commandline/service_ls/"
 echo "______________________________________________"
-docker-machine create --driver virtualbox Aiur
+docker service ls

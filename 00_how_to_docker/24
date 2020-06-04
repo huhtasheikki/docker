@@ -5,9 +5,13 @@ echo "24. Launch a rabbitmq SERVICE that will be named orbital-command. You shou
 define a specific user and password for the RabbitMQ service, they can be whatever
 you want. This service will be on the overmind network. "
 echo "______________________________________________"
-echo "COMMAND: "
+echo "COMMAND: docker service create --name orbital-command -e RABBITMQ_DEFAULT_USER=john -e RABBITMQ_DEFAULT_PASS=rabbit --network overmind rabbitmq"
 echo "______________________________________________"
 echo "ALTERNATIVE: "
 echo "______________________________________________"
-echo "NOTES: "
+echo "NOTES: 
+- Default user + password needs to be changed with variables, otherwise they are guest/guest
+https://hub.docker.com/_/rabbitmq
+"
 echo "______________________________________________"
+docker service create --name orbital-command -e RABBITMQ_DEFAULT_USER=john -e RABBITMQ_DEFAULT_PASS=rabbit --network overmind rabbitmq

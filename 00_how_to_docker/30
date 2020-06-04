@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+echo "______________________________________________"
+echo "30. Increase the number of copies of the marines service up to twenty, because there’s
+never enough Marines to eliminate Zergs. (Remember to take a look at the tasks
+and logs of the service, you’ll see, it’s fun.) "
+echo "______________________________________________"
+echo "COMMAND: "
+echo "______________________________________________"
+echo "ALTERNATIVE: "
+echo "______________________________________________"
+echo "NOTES: 
+https://docs.docker.com/engine/reference/commandline/service_scale/"
+echo "______________________________________________"
+docker service scale marines=20
