@@ -35,6 +35,7 @@ ONBUILD RUN rake db:seed
 # - rake db:seed = to runs the seeds task to populate the
 # 		 		   database with preliminary data
 #
+# download app: 'git clone https://github.com/RailsApps/rails-signup-thankyou.git app'
 # BUILD: 'docker build -t ft_rails:on-build .'
 # 		 ---> cd ..
 #		 ---> 'docker build -t ex02 .'
