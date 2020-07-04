@@ -3,7 +3,7 @@
 echo "______________________________________________"
 echo "18. Relaunch the overlord container. "
 echo "______________________________________________"
-echo "COMMAND: "
+echo "COMMAND: docker container restart overlord"
 echo "______________________________________________"
 echo "ALTERNATIVE: "
 echo "______________________________________________"
