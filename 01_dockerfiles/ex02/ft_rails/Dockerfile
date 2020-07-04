@@ -1,29 +1,45 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Dockerfile                                         :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: hhuhtane <hhuhtane@student.hive.fie>       +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/07/04 14:59:06 by hhuhtane          #+#    #+#              #
+#    Updated: 2020/07/04 15:03:52 by hhuhtane         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+#############################################################
+# - install ruby (version that works with your app)
+#############################################################
 FROM ruby:2.5.1
 
+#############################################################
+# - LABEL use this or MAINTAINER to author your docker file
+#############################################################
 LABEL maintainer="hhuhtane hhuhtane@student.hive.fi"
 
+#############################################################
+# - Install nodejs (Rails needs a javascript runtime to be
+# 	installed on the platform its running)
+# - Download and install rails and bundler (correct versions)
+# 	of ruby software packages
+#############################################################
 RUN apt-get update && apt-get install -y nodejs
 RUN gem install rails
 RUN gem install bundler:1.16.1
 
+#############################################################
+# - Make folder for the app
+# - Copy the app from your OS to the docker image
+# - Set the app folder as a working directory
+#############################################################
 RUN mkdir -p /opt/app
 COPY ./app /opt/app
 WORKDIR /opt/app
 
-ONBUILD RUN bundle install
-ONBUILD RUN rake db:migrate
-ONBUILD RUN rake db:seed
-
 #############################################################
-# - FROM install ruby (version that works with your app)
-# - LABEL use this or MAINTAINER to author your docker file
-# - RUN apt-get to install nodejs (Rails needs a javascript
-#  	runtime to be installed on the platform its running)
-# - RUN gem download and install rails and bundler (correct
-# 	version) ruby software packages
-# - RUN mkdir... make folder for the app
-# - COPY copies app from your OS to the docker image
-# - WORKDIR set the app folder as working directory
 # - ONBUILD = command executes after the current Dockerfile
 # 	build completes.
 # - RUN bundle install = creates Gemfile.lock in your
@@ -34,12 +50,21 @@ ONBUILD RUN rake db:seed
 # - rake db:migrate = runs migrations that have not run yet
 # - rake db:seed = to runs the seeds task to populate the
 # 		 		   database with preliminary data
+#############################################################
+ONBUILD RUN bundle install
+ONBUILD RUN rake db:migrate
+ONBUILD RUN rake db:seed
+
+################################################################################
+# ------- I N S T R U C T I O N S ---------
+################################################################################
 #
 # download app: 'git clone https://github.com/RailsApps/rails-signup-thankyou.git app'
-# BUILD: 'docker build -t ft_rails:on-build .'
-# 		 ---> cd ..
-#		 ---> 'docker build -t ex02 .'
-#		 ---> open browser with localhost:3000
+# BUILD: 'docker build -t ft-rails:on-build .'
+#			---> cd ..
+#			---> 'docker build -t ex02 .'
+#			---> 'docker container run -p 3000:3000 --rm -d ex02'
+#			---> open browser with 192.168.99.100:3000 (Char ip)
 #############################################################
 
 #############################################################

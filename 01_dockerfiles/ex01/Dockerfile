@@ -1,9 +1,35 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Dockerfile                                         :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: hhuhtane <hhuhtane@student.hive.fie>       +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/07/04 12:54:12 by hhuhtane          #+#    #+#              #
+#    Updated: 2020/07/04 12:54:17 by hhuhtane         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 FROM debian
 
+############################################################
+# LABEL maintainer="hhuhtane@student.hive.fi"
+# - sort of like a author
+# - MAINTAINER hhuhtane@student.hive.fi also possible
+############################################################
 LABEL maintainer="hhuhtane@student.hive.fi"
 
+############################################################
+# - Create environment variable to accept TeamSpeak's
+# 	licence so install can proceed
+############################################################
 ENV TS3SERVER_LICENSE=accept
 
+############################################################
+# - Install latest curl and bzip2
+# - Download and extact teamspeak tar file
+# - Delete the extracted tar file
+############################################################
 RUN apt-get update \
 	&& apt-get upgrade \
 	&& apt-get install -y curl \
@@ -11,14 +37,22 @@ RUN apt-get update \
 	&& curl -O https://files.teamspeak-services.com/releases/server/3.12.1/teamspeak3-server_linux_amd64-3.12.1.tar.bz2 \
 	&& tar -xf teamspeak3-server_linux_amd64-3.12.1.tar.bz2 \
 	&& rm teamspeak3-server_linux_amd64-3.12.1.tar.bz2
-############################################################
-# - install latest curl and bzip2
-# - download and extact teamspeak tar file
-# - delete the extracted tar file
-############################################################
 
+############################################################
+# EXPOSE 9987/udp 10011 30033:
+# - expose these ports on the docker virtual network
+# - you still need to use -p to open these ports on host
+# 		9987 default voice
+#		10011 server query
+#		30033 file transport
+############################################################
 EXPOSE 9987/udp 10011 30033
 
+############################################################
+# WORKDIR teamspeak3-server_linux_amd64:
+# - sets the working directory for any RUN, CMD, ENTRYPOINT,
+#COPY and ADD that follow it
+############################################################
 WORKDIR teamspeak3-server_linux_amd64
 
 ENTRYPOINT sh ts3server_minimal_runscript.sh
@@ -31,32 +65,6 @@ ENTRYPOINT sh ts3server_minimal_runscript.sh
 # be sure to create your Dockerfile with the right options. Your program should get the
 # sources when it builds, they cannot be in your repository.
 #########################################################################################
-
-############################################################
-# LABEL maintainer="hhuhtane@student.hive.fi"
-# - sort of like a author
-# - MAINTAINER hhuhtane@student.hive.fi also possible
-############################################################
-
-############################################################
-# ENV TS3SERVER_LICENSE=accept
-# - use envinronment variable to accept user agreement/licence
-############################################################
-
-############################################################
-# EXPOSE 9987/udp 10011 30033:
-# - expose these ports on the docker virtual network
-# - you still need to use -p to open these ports on host
-# 		9987 default voice
-#		10011 server query
-#		30033 file transport
-############################################################
-
-############################################################
-# WORKDIR teamspeak3-server_linux_amd64:
-# - sets the working directory for any RUN, CMD, ENTRYPOINT,
-#COPY and ADD that follow it
-############################################################
 
 #########################################################################################
 # NOTES :
